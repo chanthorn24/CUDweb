@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In Cookies</title>
+
+    <style>
+        body {
+            background-color: #fafafa;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100vw;
+            height: 90vh;
+        }
+        
+        .log_in {
+            background-color: rgba(170, 170, 170, 0.8);
+            width: 20.56rem;
+            padding: 1rem;
+            border-radius: 2%;
+            box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 6px;
+        }
+        
+        .log_in>div {
+            text-align: center;
+        }
+        
+        .log_in>label {
+            color: rgb(255, 255, 255);
+        }
+        
+        .log_in>div>img {
+            width: 13rem;
+            margin-bottom: 0.780rem;
+        }
+        
+        .log_in>input {
+            background-color: #fafafa;
+            width: 20.56rem;
+            border: 2px solid #aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        
+        .log_in>input:focus {
+            border-color: dodgerBlue;
+            box-shadow: 0 0 8px 0 dodgerBlue;
+        }
+        
+        .container2 {
+            margin: -45rem 0 0 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 93vw;
+            height: 93vh;
+        }
+        
+        #btn_login,
+        #btn_logout {
+            background-color: rgb(61, 133, 198);
+            color: white;
+            border-style: outset;
+            border-color: #0066A2;
+            height: 2rem;
+            width: 4rem;
+            font: sans-serif;
+            text-shadow: none;
+            height: 1.5rem;
+            margin-top: 0.645rem;
+            border-radius: 0.165rem;
+            margin: 0.50rem 0 0.670rem 0;
+        }
+        
+        #btn_logout {
+            background-color: rgba(239, 54, 54);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="log_in">
+            <div><img src="pic2.png" alt="" /></div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Input email" onclick="if(this.placeholder == 'Input email') {this.placeholder = ''}" onBlur="if(this.placeholder == '') {this.placeholder = 'Input email'}" />
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Input password" onclick="if(this.placeholder == 'Input password') {this.placeholder = ''}" onBlur="if(this.placeholder == '') {this.placeholder = 'Input password'}" />
+            <button type="submit" id="btn_login">Log In</button>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="home">
+            <h3>Welcome to Home Page</h3>
+            <div>You will automatically logged out</div>
+            <div>Keep refreshing your paage</div>
+            <button type="submit" id="btn_logout">Log Out</button>
+        </div>
+    </div>
+
+    <script>
+        //Email: gic@gmail.com
+        //Password: Gic123
+
+        const verify = getCookie("email");
+        if (verify == "gic@gmail.com") {
+            document.getElementsByClassName("home")[0].style.visibility = 'visible';
+            document.getElementsByClassName("log_in")[0].style.visibility = 'hidden';
+        } else {
+            document.getElementsByClassName("home")[0].style.visibility = 'hidden';
+            document.getElementsByClassName("log_in")[0].style.visibility = 'visible';
+        }
+
+        document.getElementById("btn_login").addEventListener("click", function(event) {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            const em = email;
+
+
+            if (email == "gic@gmail.com" && password == "Gic123") {
+                setCookie(em);
+                document.getElementsByClassName("log_in")[0].style.visibility = 'hidden';
+                document.getElementsByClassName("home")[0].style.visibility = 'visible';
+
+                document.getElementById("email").value = ""; //remove input
+                document.getElementById("password").value = "";
+            } else if (!email || !password) {
+                alert("Input an email or password");
+            } else {
+                alert("Wrong password or email!");
+            }
+        });
+
+        document.getElementById("btn_logout").addEventListener("click", function() {
+            document.cookie = "email=gic@gmail.com; expires=Thu, 18 Dec 2013 12:00:00 UTC"; //remove cookie
+            document.getElementsByClassName("home")[0].style.visibility = 'hidden';
+            document.getElementsByClassName("log_in")[0].style.visibility = 'visible';
+        });
+
+        function setCookie(cname) {
+            var now = new Date();
+            var time = now.getTime();
+            var expireTime = time + 1000 * 30;
+            now.setTime(expireTime);
+            document.cookie = 'email=' + cname + ';expires=' + now.toUTCString() + ';path=/';
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+
+</html>
