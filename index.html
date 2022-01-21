@@ -13,6 +13,8 @@
         }
         
         .container {
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,8 +25,8 @@
         
         .log_in {
             background-color: rgba(170, 170, 170, 0.8);
-            width: 20.56rem;
-            padding: 1rem;
+            width: 336px;
+            padding: 1em;
             border-radius: 2%;
             box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 6px;
         }
@@ -87,6 +89,10 @@
         
         #btn_logout {
             background-color: rgba(239, 54, 54);
+        }
+        
+        @media screen and (max-width: 767px) {
+            .container {}
         }
     </style>
 </head>
