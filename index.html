@@ -9,8 +9,6 @@
 
     <style>
         body {
-            padding: 0;
-            margin: 0;
             background-color: #fafafa;
         }
         
@@ -19,7 +17,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            width: 100vw;
+            width: 96vw;
             height: 90vh;
         }
         
@@ -119,11 +117,11 @@
 
         const verify = getCookie("email");
         if (verify == "gic@gmail.com") {
-            document.getElementsByClassName("home")[0].style.visibility = 'visible';
-            document.getElementsByClassName("log_in")[0].style.visibility = 'hidden';
+            document.getElementsByClassName("home")[0].style.display = 'block';
+            document.getElementsByClassName("log_in")[0].style.display = 'none';
         } else {
-            document.getElementsByClassName("home")[0].style.visibility = 'hidden';
-            document.getElementsByClassName("log_in")[0].style.visibility = 'visible';
+            document.getElementsByClassName("home")[0].style.display = 'none';
+            document.getElementsByClassName("log_in")[0].style.display = 'block';
         }
 
         document.getElementById("btn_login").addEventListener("click", function(event) {
@@ -134,8 +132,8 @@
 
             if (email == "gic@gmail.com" && password == "Gic123") {
                 setCookie(em);
-                document.getElementsByClassName("log_in")[0].style.visibility = 'hidden';
-                document.getElementsByClassName("home")[0].style.visibility = 'visible';
+                document.getElementsByClassName("home")[0].style.display = 'block';
+                document.getElementsByClassName("log_in")[0].style.display = 'none';
 
                 document.getElementById("email").value = ""; //remove input
                 document.getElementById("password").value = "";
@@ -148,14 +146,14 @@
 
         document.getElementById("btn_logout").addEventListener("click", function() {
             document.cookie = "email=gic@gmail.com; expires=Thu, 18 Dec 2013 12:00:00 UTC"; //remove cookie
-            document.getElementsByClassName("home")[0].style.visibility = 'hidden';
-            document.getElementsByClassName("log_in")[0].style.visibility = 'visible';
+            document.getElementsByClassName("home")[0].style.display = 'none';
+            document.getElementsByClassName("log_in")[0].style.display = 'block';
         });
 
         function setCookie(cname) {
             var now = new Date();
             var time = now.getTime();
-            var expireTime = time + 1000 * 30;
+            var expireTime = time + 1000 * 30; //expire 30sec
             now.setTime(expireTime);
             document.cookie = 'email=' + cname + ';expires=' + now.toUTCString() + ';path=/';
         }
