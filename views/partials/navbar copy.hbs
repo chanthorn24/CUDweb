@@ -1,0 +1,48 @@
+  
+<link rel="stylesheet" href="../assets/style/navbar.css">
+
+
+<div class="container1">
+    <div class="club-site" id="club">
+        <div>CLUB SITE <i class="fa-regular fa-square-up-right"></i></div>
+        <ul>
+            <li><a href="#"><img src="/assets/image/logo/visakha.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/boeungket.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/armyfc.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/kirivong.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/nagaworld.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/svayreang.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/phnompenhcrown.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/angkortiger.png" alt=""></a></li>
+           
+        </ul>
+    </div>
+    <div class="menu">
+        <img src="/assets/image/logo/logoCPL.png" alt="">
+        <ul>
+            <li><a href="http://">Cambodian Premier League <i class="fa-solid fa-caret-down"></i></a></li>
+            <li><a href="http://">Live</a></li>
+            <li><a href="http://">Competitions</a></li>
+            <li><a href="http://">Players</a></li>
+        </ul>
+        <div class="sign-in">
+            <div>Sign In</div>
+            <div class="search"><i class="fa-regular fa-magnifying-glass"></i></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const club_site = document.getElementById('club');
+    const menu = document.getElementById('menu');
+
+    window.addEventListener('scroll', (event)=>{
+        let scroll_value = this.scrollY;
+
+        if(scroll_value == 0) {
+            club_site.className = 'club-site';
+        }else if(club_site.className = 'club-site'){
+            club_site.className += ' disable';
+        }
+    });
+</script>

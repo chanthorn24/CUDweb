@@ -1,0 +1,15 @@
+.contain_footer{
+  width: 100vw;
+  height: auto;
+  background-color: rgba(24, 118, 138, 1);
+  margin-top: 30px;
+  color: white;
+}
+
+footer .row{
+  width: 100vw;
+  color: white;
+}
+.groupIcon{
+  color: white;
+}

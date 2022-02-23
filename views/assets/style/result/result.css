@@ -1,0 +1,80 @@
+
+.container_result{
+  display: flex;
+  width: 100vw;
+}
+.columnOne{
+  width:60vw;
+}
+.columnTwo{
+  width: 20vw;
+  background-color: blueviolet;
+}
+
+
+
+
+
+
+.main1 {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  top: 4vh;
+  font-family: 'Oswald', sans-serif;
+  z-index: -1;
+}
+
+.main2 {
+  width: 100%;
+  margin: auto;
+  background-color: rgba(128, 128, 128,0.5);
+  color: white;
+  padding: 0.5vw;
+}
+
+.flag {
+  width: 5vw;
+  height: 3vw;
+  position: relative;
+  bottom: 0.5vw
+}
+
+.pt {
+  font-size: 2vw
+}
+
+table {
+  color: white
+}
+
+.logo {
+  width: 2vw;
+  height: 2vw
+}
+
+td {
+  text-align: center
+}
+
+.name {
+  text-align: left
+}
+
+thead {
+  background-color: red;
+  border-bottom: 2px solid red
+}
+
+.top {
+  background-color: rgb(0, 255, 0, 0.5)
+}
+
+.top .logo {
+  animation-name: four;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite
+}
+
+

@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <!-- <meta> tags> -->
+    {{!-- icon football --}}
+    <link rel = "icon" href ="/assets/image/football.png" 
+            type = "image/x-icon">
+    <title>PRI-CAM</title>
+
+    {{!-- bootstrap --}}
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    {{!-- jquery --}}
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+
+
+    {{!-- foon --}}
+    <link href="https://kit-pro.fontawesome.com/releases/v6.0.0/css/pro.min.css" rel="stylesheet">
+
+    <style>
+         .body{
+             margin: 0;
+             padding: 0;
+         }
+         .container{
+             width: 100%;
+             margin: 0;
+             padding: 0;
+         }
+    </style>
+
+</head>
+<body>  
+
+    <div class="container">
+        {{>navbar}}  
+            {{{body}}}
+        {{>footer}}
+    </div>
+
+
+
+  
+</body>
+</html>

@@ -1,0 +1,102 @@
+  
+<link rel="stylesheet" href="../assets/style/navbar.css">
+
+
+<div class="container_1">
+    <div class="club-site" id="club">
+        <div>CLUB SITE <i class="fa-regular fa-square-up-right"></i></div>
+        <ul>
+             <li><a href="#"><img src="/assets/image/logo/visakha.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/boeungket.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/armyfc.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/kirivong.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/nagaworld.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/svayreang.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/phnompenhcrown.png" alt=""></a></li>
+            <li><a href="http://"><img src="/assets/image/logo/angkortiger.png" alt=""></a></li>
+            
+        </ul>
+    </div>
+    <div class="menu">
+            <div style="display: flex; align-items: center;">
+                <img src="/assets/image/logo/logoCPL.png" alt="">
+                <ul>
+                    <li><a class="noselect" style="cursor: pointer;" onclick="dropDown()">Cambodian Premier League <i class="fa-regular fa-square-caret-down"></i></a></li>
+                    <li><a href="http://">Live</a></li>
+                    <li><a href="http://">Competitions</a></li>
+                    <li><a href="http://">Players</a></li>
+                </ul>
+            </div>
+            <div class="sign-in">
+                <div id="signin_btn">Sign In</div>
+                <div class="search"><i class="fa-regular fa-magnifying-glass" id="search_btn"></i></div>
+            </div>
+        </div> 
+        <div class="drop-down flex" id="drop">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/result">Results</a></li>
+                <li><a href="/match">Table</a></li>
+            </ul>
+        </div>
+
+        <div class="search_1" id="search_1">
+            <input type="text" name="" id="search_item" placeholder="Search Cambodian Premier League" 
+            onclick="if(this.placeholder == 'Search Cambodian Premier League') {this.placeholder = ''}" 
+            onBlur="if(this.placeholder == '') {this.placeholder = 'Search Cambodian Premier League'}">
+            <i class="fa-regular fa-magnifying-glass"></i>
+        </div>
+</div>
+
+<script>
+
+    const club_site = document.getElementById('club');
+    const menu = document.getElementById('menu');
+
+    window.addEventListener('scroll', (event)=>{
+        let scroll_value = this.scrollY;
+        if(scroll_value == 0) {
+            club_site.className = 'club-site';
+        }else if(club_site.className = 'club-site'){
+            club_site.className += ' disable';
+        }
+    });
+    //dropdown
+    const dropdown = document.getElementById('drop');
+    const dropDown = ()=> {
+        if(dropdown.className == 'drop-down flex'){
+            dropdown.className = 'drop-down'
+            document.getElementsByClassName('noselect')[0].innerHTML = 'Cambodian Premier League <i class="fa-regular fa-square-caret-right"></i>';
+        }else if(dropdown.className == 'drop-down'){
+            dropdown.className = 'drop-down flex'
+            document.getElementsByClassName('noselect')[0].innerHTML = 'Cambodian Premier League <i class="fa-regular fa-square-caret-down"></i>';
+        }
+    }
+
+    //Btn search and sign in
+    const search_btn = document.getElementById('search_btn'); 
+    const signin_btn = document.getElementById('signin_btn'); 
+    const search_1 = document.getElementById('search_1'); 
+
+    window.addEventListener('click', (event)=>{
+        if(event.target.id == 'search_btn') {
+            if(search_1.className == 'search_1') {
+                document.getElementsByClassName('search')[0].innerHTML = '<i class="fa-regular fa-circle-xmark" id="search_btn"></i>';
+                document.getElementsByClassName('search')[0].style.backgroundColor = 'rgba(118,165,175,.6)'
+                setTimeout(()=>{
+                   // document.getElementsByClassName('home')[0].style.opacity = '0.3';
+                },900)
+                search_1.className += ' flex drop';
+            }else if(search_1.className == 'search_1 flex drop') {
+                document.getElementsByClassName('search')[0].innerHTML = '<i class="fa-regular fa-magnifying-glass" id="search_btn"></i>';
+                document.getElementsByClassName('search')[0].style.backgroundColor = ''
+                //document.getElementsByClassName('home')[0].style.opacity = '1';
+               
+                search_1.className = 'search_1';
+            }
+        }else if(event.target.id == 'signin_btn') {
+            alert('sign in')
+        }
+    });
+
+</script>
